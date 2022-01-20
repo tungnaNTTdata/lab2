@@ -8,7 +8,7 @@ COUNT (commit) AS count
 FROM `bigquery-public-data.github_repos.sample_commits`AS samples
 INNER JOIN list_repo ON list_repo.repo_name = samples.repo_name
 WHERE committer.date >= TIMESTAMP("2016-01-01 00:00:00 UTC")
-AND committer.date <= TIMESTAMP("2017-01-01 00:00:00 UTC")
+AND committer.date < TIMESTAMP("2017-01-01 00:00:00 UTC")
 GROUP BY name
 ORDER BY count DESC
 LIMIT 10
